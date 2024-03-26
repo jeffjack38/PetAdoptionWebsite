@@ -9,37 +9,37 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = PetAdoptionWebsite
 build_property.RootNamespace = PetAdoptionWebsite
-build_property.ProjectDir = C:\Users\jeade\source\repos\PetAdoptionWebsite\
+build_property.ProjectDir = C:\Users\jeade\Source\Repos\PetAdoptionWebsite\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\jeade\source\repos\PetAdoptionWebsite
+build_property.MSBuildProjectDirectory = C:\Users\jeade\Source\Repos\PetAdoptionWebsite
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/jeade/source/repos/PetAdoptionWebsite/Pages/Error.cshtml]
+[C:/Users/jeade/Source/Repos/PetAdoptionWebsite/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jeade/source/repos/PetAdoptionWebsite/Pages/Index.cshtml]
+[C:/Users/jeade/Source/Repos/PetAdoptionWebsite/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jeade/source/repos/PetAdoptionWebsite/Pages/Privacy.cshtml]
+[C:/Users/jeade/Source/Repos/PetAdoptionWebsite/Pages/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jeade/source/repos/PetAdoptionWebsite/Pages/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/jeade/Source/Repos/PetAdoptionWebsite/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jeade/source/repos/PetAdoptionWebsite/Pages/_ViewImports.cshtml]
+[C:/Users/jeade/Source/Repos/PetAdoptionWebsite/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jeade/source/repos/PetAdoptionWebsite/Pages/_ViewStart.cshtml]
+[C:/Users/jeade/Source/Repos/PetAdoptionWebsite/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jeade/source/repos/PetAdoptionWebsite/Pages/Shared/_Layout.cshtml]
+[C:/Users/jeade/Source/Repos/PetAdoptionWebsite/Pages/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-dnsfcqbgqa
