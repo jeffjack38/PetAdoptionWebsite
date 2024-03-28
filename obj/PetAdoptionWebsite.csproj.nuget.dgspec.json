@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jeade\\Source\\Repos\\PetAdoptionWebsite\\PetAdoptionWebsite.csproj": {}
+    "C:\\Users\\jeade\\source\\repos\\PetAdoptionWebsite\\PetAdoptionWebsite.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jeade\\Source\\Repos\\PetAdoptionWebsite\\PetAdoptionWebsite.csproj": {
+    "C:\\Users\\jeade\\source\\repos\\PetAdoptionWebsite\\PetAdoptionWebsite.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jeade\\Source\\Repos\\PetAdoptionWebsite\\PetAdoptionWebsite.csproj",
+        "projectUniqueName": "C:\\Users\\jeade\\source\\repos\\PetAdoptionWebsite\\PetAdoptionWebsite.csproj",
         "projectName": "PetAdoptionWebsite",
-        "projectPath": "C:\\Users\\jeade\\Source\\Repos\\PetAdoptionWebsite\\PetAdoptionWebsite.csproj",
+        "projectPath": "C:\\Users\\jeade\\source\\repos\\PetAdoptionWebsite\\PetAdoptionWebsite.csproj",
         "packagesPath": "C:\\Users\\jeade\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jeade\\Source\\Repos\\PetAdoptionWebsite\\obj\\",
+        "outputPath": "C:\\Users\\jeade\\source\\repos\\PetAdoptionWebsite\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\jeade\\AppData\\Roaming\\NuGet\\NuGet.Config",
