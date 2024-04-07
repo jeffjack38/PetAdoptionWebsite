@@ -1,0 +1,117 @@
+﻿@model List<PetAdoptionWebsite.Models.Pet>
+
+<h2>Animals for Adoption</h2>
+
+@using (Html.BeginForm("Filter", "Pet", FormMethod.Get, new { id = "formId" }))
+{
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <div class="navbar-collapse" id="navbarSupportedContent">
+                <form class="d-flex">
+                    <div class="nav-item">
+                        @Html.Label("Filter by Species:", "species", new { @class = "nav-link" })
+                        @Html.DropDownList("species", new List<SelectListItem>
+                    {
+                    new SelectListItem { Text = "Dog", Value = "Dog" },
+                    new SelectListItem { Text = "Cat", Value = "Cat" },
+                    // Add other species options
+                    }, "Select a Species", new { @class = "nav-link", id = "species" })
+                    </div>
+
+                    <div class="nav-item">
+                        @Html.Label("Filter by Age:", "ageRange", new { @class = "nav-link" })
+                        @Html.DropDownList("ageRange", new List<SelectListItem>
+                    {
+                    new SelectListItem { Text = "Young", Value = "0-5" },
+                    new SelectListItem { Text = "Middle age", Value = "6-10" },
+                    new SelectListItem { Text = "Elder", Value = "11-50" },
+                    // Add other age range options
+                    }, new { @class = "nav-link" })
+                    </div>
+
+                    <div class="nav-item">
+                        <input type="submit" value="Filter" class="btn btn-primary nav-link" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </nav>
+}
+
+
+<div class="row">
+    @foreach (var pet in Model)
+    {
+        <div class="col-md-4 mb-4">
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="~/images/@(pet.Name).jpg">
+                <div class="card-body text-center">
+                    <h5 class="card-title display-4">@pet.Name</h5>
+                    <p class="card-text h5">Species: @pet.Species</p>
+                    <p class="card-text h5">Pet Age: @pet.Age</p>
+                    <p class="card-text h5">Bonded Buddy Status: @pet.BondedBuddyStatus</p>
+                </div>
+                <ul>
+                    <form asp-action="Add" method="post">
+
+                        <input type="hidden" name="Pet.Id" value="@pet.Id" />
+                        <button type="submit" class="btn btn-primary">Add to Favorites</button>
+                    </form>
+
+                </ul>
+                <div class="card-body text-center">
+                    <a asp-area="" asp-controller="Pet" asp-action="Details" asp-route-id="@pet.Id" class="btn btn-dark btn-block text-white">Pet Details</a>
+                </div>
+                @if (User.IsInRole("Admin"))
+                {
+                    <div class="card-body text-center">
+                        <a asp-area="" asp-controller="Pet" asp-action="Edit" asp-route-id="@pet.Id" class="btn btn-dark btn-block text-white">Edit Pet</a>
+                    </div>
+                }
+            </div>
+        </div>
+    }
+</div>
+
+
+
+
+@section scripts {
+    <script>
+        // Define the addToFavorites function
+        function addToFavorites(id, name) {
+            // Make an AJAX request to add the pet to favorites
+            $.ajax({
+                type: "POST",
+                url: "/Favorites/AddToFavorite",
+                data: { id: id, name: name }, // Include both ID and Name
+                success: function (result) {
+                    console.log(result);  // Log the response to the console for inspection
+                    alert('Added to Favorites: ' + name);
+
+                    // Update the view with the new data
+                    // This assumes your pets are directly rendered inside the <div class="row">
+                    $('.row').load(location.href + ' .row');
+                },
+
+                error: function (error) {
+                    alert('Error adding to Favorites: ' + name);
+                }
+            });
+        }
+
+        // Attach the addToFavorites function to the button click event
+        $(document).ready(function () {
+            $('button.addToFavorites').on('click', function () {
+                // Get the pet ID and name from data attributes
+                var id = $(this).data('id');
+                var name = $(this).data('name');
+
+                // Call the addToFavorites function with the pet ID and name
+                addToFavorites(id, name);
+            });
+        });
+    </script>
+}
+
+}
