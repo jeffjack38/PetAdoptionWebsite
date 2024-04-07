@@ -1,0 +1,23 @@
+﻿@model PetAdoptionWebsite.Models.LoginViewModel
+
+
+<div class="login-container">
+    <h2>Login</h2>
+
+    <form method="post" asp-action="Login" asp-controller="Account">
+        <div>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required />
+        </div>
+
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required />
+        </div>
+
+        <div>
+            <button type="submit" class="sizebutton">Login</button>
+            <p style="font-size: 20px;">Not a User? <a href="@Url.Action("Register", "Account")">Register now</a></p>
+        </div>
+    </form>
+</div>
