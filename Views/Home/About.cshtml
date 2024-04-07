@@ -1,0 +1,64 @@
+﻿﻿@using Microsoft.AspNetCore.Mvc.TagHelpers
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+	ViewData["Title"] = "About Us";
+}
+
+<link rel="stylesheet" type="text/css" href="~/css/site.css" asp-append-version="true">
+<link rel="stylesheet" type="text/css" href="~/css/about.css" asp-append-version="true">
+
+<div class="text-center">
+	<h1 class="display-4">About Us</h1>
+</div>
+
+<div class="mainColumns">
+	<section class="leftColumnSection">
+		<div>
+			Welcome to our animal adoption website, where hearts meet paws. Discover a diverse array of lovable pets awaiting their forever homes. 
+			Join us in creating brighter futures for animals in need through adoption, compassion, and love.
+			
+		</div>
+
+		<div>
+			Our mission is to foster a compassionate community where every animal finds a loving home. 
+			Through our dedication to animal welfare, we strive to match pets with devoted families, ensuring a lifetime of joy and companionship. 
+			Together, we advocate for the well-being of all creatures, promoting empathy, respect, and the celebration of the human-animal bond.
+		</div>
+	</section>
+
+	<section class="centerColumnSection">
+		<p class="hoursP">
+			Hours of Operation:
+		</p>
+
+		<p class="weekHoursP">
+			Sunday 12:00 noon to 5:00 pm <br>
+			Monday - Thursday 10:00 am to 7:00 pm <br>
+			Friday 10:00 am to 4:00 pm <br>
+			Saturday 9:00 am to 5:00 pm<br>
+			<img src="~/images/savepups.png" alt="save pups" width="200" height="200" />
+		</p>
+
+	</section>
+
+	<section class="rightColumnSection">
+		<div>
+			There are many ways you can help the Animal Rescue League of Des Moines. You can volunteer your time, donate money or supplies, or adopt an animal.
+			Every little bit helps us make a difference in the lives of animals.
+			We are grateful for the support of our community. Together, we can make a difference in the lives of animals
+		</div>
+		<div>
+			<strong>Phone Number: </strong>
+			<p>(xxx) xxx-xxxx</p>
+		</div>
+		<div>
+			<strong>Mailing Address:</strong>
+			<p>
+				Pet Adoption<br>
+				1111 Road Road <br>
+				City, State ZipCode
+			</p>
+		</div>
+	</section>
+</div>
