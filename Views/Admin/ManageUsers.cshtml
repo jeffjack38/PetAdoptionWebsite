@@ -1,0 +1,28 @@
+﻿@model List<PetAdoptionWebsite.Models.User>
+
+<h2>Manage Users</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>User ID</th>
+            <th>Username</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Id</td>
+                <td>@user.UserName</td>
+
+                <td>
+                    <a asp-action="ViewUserProfile" asp-route-userId="@user.Id">View Profile</a> |
+                    <a asp-action="EditUser" asp-route-userId="@user.Id">Edit</a> |
+                    <a asp-action="DeleteUser" asp-route-userId="@user.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

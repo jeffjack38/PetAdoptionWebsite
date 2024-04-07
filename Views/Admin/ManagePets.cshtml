@@ -1,0 +1,37 @@
+﻿@model List<PetAdoptionWebsite.Models.Pet>
+
+<h2>Manage Pets</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Pet ID</th>
+            <th>Name</th>
+            <th>Species</th>
+            <th>Age</th>
+            <th>Is Adopted</th>
+
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var pet in Model)
+        {
+            <tr>
+                <td>@pet.Id</td>
+                <td>@pet.Name</td>
+                <td>@pet.Species</td>
+                <td>@pet.Age</td>
+                <td>@(pet.IsAdopted ? "Yes" : "No")</td>
+                <td>
+                    <a asp-action="EditPet" asp-route-petId="@pet.Id">Edit</a> |
+                    <a asp-action="DeletePet" asp-route-petId="@pet.Id">Delete</a> |
+                    @if (!pet.IsAdopted)
+                    {
+                        <a asp-action="MarkAsAdopted" asp-route-petId="@pet.Id">Mark as Adopted</a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
