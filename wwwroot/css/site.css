@@ -1,18 +1,191 @@
-html {
-  font-size: 14px;
+/* Fonts */
+@font-face {
+    font-family: 'Fire Cracker';
+    src: url('../fonts/Firecracker Regular.ttf') format('truetype');
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+@font-face {
+    font-family: 'Lovise';
+    src: url('../fonts/Lovise.otf') format('opentype');
 }
 
-html {
-  position: relative;
-  min-height: 100%;
+/* Reset some default styles for better consistency */
+body, h1, h2, p, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+.banner {
+    background-image: url(../images/petBanner.jpg);
+    background-size: cover;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-shadow: 2px 2px 5px white; /* Set the white shadow */
+    background-attachment: fixed;
+    color: black;
+    /* Add flexbox styles to center content vertically and horizontally */
+    display: flex;
 }
 
 body {
-  margin-bottom: 60px;
+    font-family: 'Fire Cracker', sans-serif;
+    background-color: #9d95b0;
+}
+
+p {
+    font-family: 'Fire Cracker', sans-serif;
+    color: #171718;
+    font-size: 16px;
+}
+
+h1, h2, h3 {
+    font-family: Lovise, sans-serif;
+    color: #29221a;
+}
+
+h1 {
+    font-size: 100px !important;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    nav a {
+        color: #fff;
+        text-decoration: none;
+        margin: 0 15px;
+    }
+
+main {
+    margin-top: 20px;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+.login-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+    .login-container h2 {
+        font-family: 'Lovise', sans-serif;
+        color: #29221a;
+        text-align: center;
+        font-size: 24px;
+    }
+
+form {
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-family: 'Lovise', sans-serif;
+    color: #29221a;
+    font-size: 16px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+button {
+    background-color: #333;
+    color: #fff;
+    padding: 15px; /* Increased padding for a larger button */
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block; /* Center the button */
+    margin: 0 auto; /* Center the button */
+    font-size: 20px; /* Increased font size for the button */
+}
+
+.sizebutton {
+    font-size: 20px;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+/* Optional: Add some spacing between form elements */
+div {
+    margin-bottom: 15px;
+}
+
+.user-profile {
+    max-width: 400px; /* Adjust as needed */
+    margin: 0 auto;
+}
+
+.profile-field {
+    margin-bottom: 10px;
+}
+
+.field-label {
+    font-weight: bold;
+}
+
+.edit-button {
+    margin-top: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.contact-section {
+    margin-top: 50px;
+    border-top: 2px solid #ccc;
+    padding-top: 20px;
+}
+
+.email, .phone {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+}
+
+    .email strong, .phone strong {
+        display: block;
+        margin-bottom: 8px;
+    }
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
 }

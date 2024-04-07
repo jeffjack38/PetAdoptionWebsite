@@ -16,16 +16,12 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\jeade\source\repos\PetAdoptionWebsite
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/jeade/source/repos/PetAdoptionWebsite/Views/Error.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXJyb3IuY3NodG1s
+[C:/Users/jeade/source/repos/PetAdoptionWebsite/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/jeade/source/repos/PetAdoptionWebsite/Views/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSW5kZXguY3NodG1s
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/jeade/source/repos/PetAdoptionWebsite/Views/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJpdmFjeS5jc2h0bWw=
+[C:/Users/jeade/source/repos/PetAdoptionWebsite/Views/Shared/NotFound.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXE5vdEZvdW5kLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/jeade/source/repos/PetAdoptionWebsite/Views/Shared/_ValidationScriptsPartial.cshtml]
