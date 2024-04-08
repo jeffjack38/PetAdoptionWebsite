@@ -1,0 +1,14 @@
+﻿﻿@model ErrorViewModel
+
+<h1 class="text-danger">An error occurred while processing your request.</h1>
+
+@if (Model.ShowRequestId)
+{
+    <p>
+        <strong>Error ID:</strong> <code>@Model.RequestId</code>
+    </p>
+}
+
+<p>
+    We apologize for any inconvenience. Please try again or contact support if the problem persists.
+</p>
