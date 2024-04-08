@@ -1,0 +1,18 @@
+﻿﻿<div class="user-profile">
+    <div class="profile-field">
+        <label for="UserNameValue" class="field-label">Username: </label>
+        <span id="UserNameValue">@Model.UserName</span>
+    </div>
+
+    <div class="profile-field">
+        <label for="EmailValue" class="field-label">Email: </label>
+        <span id="EmailValue">@Model.Email</span>
+    </div>
+
+
+
+
+    <form asp-area="" asp-controller="User" asp-action="EditProfile" method="get">
+        <button type="submit" class="btn btn-dark btn-block text-white edit-button">Edit Profile</button>
+    </form>
+</div>

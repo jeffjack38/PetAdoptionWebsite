@@ -1,0 +1,24 @@
+﻿﻿@foreach (var application in Model)
+{
+    <tr>
+        <td>@application.Id</td>
+        <td>@application.User.UserName</td>
+        <td>
+            @if (application.Pets != null && application.Pets.Any())
+            {
+                foreach (var pet in application.Pets)
+                {
+                    <span>@pet.Name</span>
+                    <br />
+                }
+            }
+            else
+            {
+                <span>No Pets</span>
+            }
+        </td>
+        <td>@application.Status.Name</td>
+        <td>@application.ApplicationDate</td>
+       
+    </tr>
+}

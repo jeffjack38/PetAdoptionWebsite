@@ -1,0 +1,54 @@
+﻿@model PetAdoptionWebsite.Models.PetListViewModel
+
+
+<h2>Your Favorite Pets</h2>
+
+<div>
+    <label for="speciesDropdown">Filter by Species:</label>
+    <select id="speciesDropdown" onchange="location = this.value;">
+        <option value="@Url.Action("Favorites", new { species = "All" })"
+                class="@Model.CheckActiveSpecies("All")">All</option>
+        @foreach (var species in Model.Species)
+        {
+            <option value="@Url.Action("Favorites", new { species = species })"
+                    class="@Model.CheckActiveSpecies(species)">
+                @species
+            </option>
+        }
+    </select>
+</div>
+
+@if (Model.Pets.Any())
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Species</th>
+                <th>Age</th>
+                <th>Bonded Buddy Status</th>
+                <th>Description</th>
+                <th>Special Care Instructions</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var pet in Model.Pets)
+            {
+                <tr>
+                    <td>@pet.Name</td>
+                    <td>@pet.Species</td>
+                    <td>@pet.Age</td>
+                    <td>@pet.BondedBuddyStatus</td>
+                    <td>@pet.Description</td>
+                    <td>@pet.SpecialCareInstructions</td>
+                    
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No favorite pets available.</p>
+}
