@@ -25,4 +25,8 @@
     <PackageReference Include="xunit.extensibility.core" Version="2.7.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\fonts\" />
+  </ItemGroup>
+
 </Project>

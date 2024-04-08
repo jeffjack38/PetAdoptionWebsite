@@ -1,0 +1,24 @@
+﻿﻿body {
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+p {
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+img {
+    margin-bottom: 15px;
+    border: 5px solid white;
+}
+
+.list-link {
+    background-color: white;
+    text-align: center;
+    font-size: 18px;
+}

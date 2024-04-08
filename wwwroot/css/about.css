@@ -1,0 +1,67 @@
+﻿.hoursP {
+    background-color: black;
+    color: whitesmoke;
+    font-size: x-large;
+    padding-left: 10px;
+    text-align: center;
+}
+
+.weekHoursP {
+    font-size: large;
+    padding-left: 60px;
+}
+
+strong {
+    color: black;
+    font-size: larger;
+}
+
+body {
+    box-sizing: border-box;
+}
+
+.mainColumns {
+    display: flex;
+}
+
+main div.mainColumns .leftColumnSection, main div.mainColumns .rightColumnSection {
+    width: 25%;
+}
+
+main div.mainColumns .centerColumnSection {
+    width: 50%;
+}
+
+.leftColumnSection {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 10px;
+    margin-left: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 20px;
+}
+
+.centerColumnSection {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-left: 50px;
+    padding-right: 50px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.rightColumnSection {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 10px;
+    margin-left: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    font-size: 20px;
+}
+
+p {
+    font-size: 20px;
+}
