@@ -3,7 +3,9 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using PetAdoptionWebsite.Models;
 using Microsoft.AspNetCore.Identity;
+using PetAdoptionWebsite.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,14 +16,24 @@ builder.Services.AddSession();
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-//get Connection string from ToDoContext
-
+//get Connection string from 
+builder.Services.AddDbContext<PetAdoptionWebsite.Models.PetContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("PetContext")));
 
 builder.Services.AddRouting(options =>
 {
     options.LowercaseUrls = true;
     options.AppendTrailingSlash = true;
 });
+
+builder.Services.AddIdentity<User, IdentityRole>(options =>
+{
+    options.Password.RequiredLength = 10;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequireDigit = false;
+})
+    .AddEntityFrameworkStores<PetContext>()
+    .AddDefaultTokenProviders();
+
 
 
 var app = builder.Build();
@@ -56,5 +68,10 @@ app.MapControllerRoute(
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+await PetContext.CreateAdminUser(app.Services);
+await PetContext.CreateAdminUserName(app.Services);
+
+
 
 app.Run();
