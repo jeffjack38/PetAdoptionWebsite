@@ -1,5 +1,17 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model PetAdoptionWebsite.Models.Pet
+
 @{
+    ViewData["Title"] = "Pet Details";
 }
+
+<link rel="stylesheet" type="text/css" href="~/css/details.css">
+
+<h1>@Model.Name</h1>
+<img src="~/images/@(Model.Name).jpg" alt="@Model.Name" class="img-fluid" style="max-width: 300px; max-height: 300px;" />
+<p><strong>Species:</strong> @Model.Species</p>
+<p><strong>Age:</strong> @Model.Age</p>
+<p><strong>Description:</strong> @Model.Description</p>
+<p><strong>Bonded Buddy Status:</strong> @Model.BondedBuddyStatus</p>
+<p><strong>Special Care Instructions:</strong> @Model.SpecialCareInstructions</p>
+
+<a asp-area="" asp-controller="Pet" asp-action="ViewList" asp-route-id="@Model.Id" class="list-link">List of Pets</a>

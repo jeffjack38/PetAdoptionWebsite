@@ -1,14 +1,27 @@
-﻿﻿<div class="container mt-4">
+﻿@model PetAdoptionWebsite.Models.User
+
+﻿<div class="container mt-4">
     <h2>Edit Profile</h2>
     <form method="post" action="@Url.Action("EditProfile", "User")">
+
+        <div class="form-group">
+            <label for="FirstName">First name:</label>
+            <input type="text" class="form-control" id="FirstName" name="FirstName" value="@Model.FirstName">
+        </div>
+
+        <div class="form-group">
+            <label for="FirstName">Last name:</label>
+            <input type="text" class="form-control" id="LastName" name="LastName" value="@Model.LastName">
+        </div>
+
         <div class="form-group">
             <label for="UserName">Username:</label>
-            <span class="form-control-plaintext">@Model.UserName</span>
+            <input type="text" class="form-control" id="UserName" name="UserName" value="@Model.UserName">
         </div>
 
         <div class="form-group">
             <label for="Email">Email:</label>
-            <span class="form-control-plaintext">@Model.Email</span>
+            <input type="email" class="form-control" id="Email" name="Email" value="@Model.Email">
         </div>
 
 

@@ -82,22 +82,36 @@ namespace PetAdoptionWebsite.Controllers
 
                     if (user != null)
                     {
+                        user.FirstName = editedUser.FirstName;
+                        user.LastName = editedUser.LastName;
                         user.UserName = editedUser.UserName;
                         user.Email = editedUser.Email;
 
-                        await _userManager.UpdateAsync(user);
+                        var result = await _userManager.UpdateAsync(user);
 
-                        return RedirectToAction("Profile");
+                        if (result.Succeeded)
+                        {
+                            return RedirectToAction("Profile");
+                        }
+                        else
+                        {
+                            foreach (var error in result.Errors)
+                            {
+                                ModelState.AddModelError(string.Empty, error.Description);
+                            }
+                        }
                     }
-
-                    return NotFound();
+                    else
+                    {
+                        return NotFound();
+                    }
                 }
 
                 return View(editedUser);
             }
             catch (Exception ex)
             {
-                
+                // Log the exception
                 return RedirectToAction("Error");
             }
         }
