@@ -210,20 +210,18 @@ namespace PetAdoptionWebsite.Controllers
             }
         }
 
-        [HttpPost]
-        public IActionResult DeleteUser(string userId)
+        // DeleteUser Action
+        public IActionResult DeleteUser(string Id)
         {
             try
             {
-                var user = _context.Users.Find(userId);
+                var user = _context.Users.Find(Id);
 
-                if (user == null)
+                if (user != null)
                 {
-                    return NotFound();
+                    _context.Users.Remove(user);
+                    _context.SaveChanges();
                 }
-
-                _context.Users.Remove(user);
-                _context.SaveChanges();
 
                 return RedirectToAction("ManageUsers");
             }
