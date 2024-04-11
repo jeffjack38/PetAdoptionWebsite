@@ -7,13 +7,18 @@ namespace PetAdoptionWebsite.Models
         // Extension method to set an object in session
         public static void SetObject<T>(this ISession session, string key, T value)
         {
+            if (session == null)
+            {
+                throw new ArgumentNullException(nameof(session));
+            }
+
             try
             {
                 session.SetString(key, JsonConvert.SerializeObject(value));
             }
             catch (Exception ex)
             {
-                // Handle the exception (log, display, or rethrow)
+                
                 Console.WriteLine($"Error setting object in session: {ex.Message}");
             }
         }
@@ -28,7 +33,7 @@ namespace PetAdoptionWebsite.Models
             }
             catch (Exception ex)
             {
-                // Handle the exception (log, display, or rethrow)
+                
                 Console.WriteLine($"Error getting object from session: {ex.Message}");
                 return default(T);
             }
