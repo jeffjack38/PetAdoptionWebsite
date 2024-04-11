@@ -39,11 +39,11 @@ namespace PetAdoptionWebsite.Controllers
 
         // EditPet Action
         [HttpGet]
-        public IActionResult EditPet(int petId)
+        public IActionResult EditPet(int Id)
         {
             try
             {
-                var pet = _context.Pets.Find(petId);
+                var pet = _context.Pets.Find(Id);
                 if (pet == null)
                 {
                     // Handle the case where pet is not found
@@ -54,11 +54,55 @@ namespace PetAdoptionWebsite.Controllers
             }
             catch (Exception ex)
             {
-                // Log the exception
-                // Redirect to an error view 
+                 
                 return RedirectToAction("Error");
             }
         }
+
+        [HttpPost]
+        public async Task<IActionResult> EditPet(Pet editedPet)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    // Retrieve the existing pet from the database using its ID
+                    var existingPet = _context.Pets.Find(editedPet.Id);
+
+                    if (existingPet == null)
+                    {
+                        // Handle the case where pet is not found
+                        return NotFound();
+                    }
+
+                    // Update the properties of the existing pet
+                    existingPet.Name = editedPet.Name;
+                    existingPet.Species = editedPet.Species;
+                    existingPet.Age = editedPet.Age;
+                    existingPet.BondedBuddyStatus = editedPet.BondedBuddyStatus;
+                    existingPet.Description = editedPet.Description;
+                    existingPet.SpecialCareInstructions = editedPet.SpecialCareInstructions;
+
+                    // Save the changes to the database
+                    _context.Pets.Update(existingPet);
+                    await _context.SaveChangesAsync();
+
+                    // Redirect to the appropriate action (e.g., Pet details)
+                    return RedirectToAction("Details", "Pet", new { id = existingPet.Id });
+                }
+
+                // If model state is not valid, return the view with validation errors
+                return View(editedPet);
+            }
+            catch (Exception ex)
+            {
+                // Log the exception
+                return RedirectToAction("Error");
+            }
+        }
+
+
+
 
         // DeletePet Action
         public IActionResult DeletePet(int petId)

@@ -65,7 +65,7 @@
                 @if (User.IsInRole("Admin"))
                 {
                     <div class="card-body text-center">
-                        <a asp-area="" asp-controller="Pet" asp-action="Edit" asp-route-id="@pet.Id" class="btn btn-dark btn-block text-white">Edit Pet</a>
+                        <a asp-area="" asp-controller="Admin" asp-action="EditPet" asp-route-id="@pet.Id" class="btn btn-dark btn-block text-white">Edit Pet</a>
                     </div>
                 }
             </div>
