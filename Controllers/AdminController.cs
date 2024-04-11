@@ -136,18 +136,17 @@ namespace PetAdoptionWebsite.Controllers
             }
             catch (Exception ex)
             {
-                // Log the exception
-                // Redirect to an error view 
+                
                 return RedirectToAction("Error");
             }
         }
 
         // ViewUserProfile Action
-        public IActionResult ViewUserProfile(string userId)
+        public IActionResult ViewUserProfile(string Id)
         {
             try
             {
-                var userProfile = _context.Users.Find(userId);
+                var userProfile = _context.Users.Find(Id);
 
                 if (userProfile != null)
                 {
@@ -158,18 +157,17 @@ namespace PetAdoptionWebsite.Controllers
             }
             catch (Exception ex)
             {
-                // Log the exception 
-                // Redirect to an error view 
+                
                 return RedirectToAction("Error");
             }
         }
 
         [HttpGet]
-        public IActionResult EditUser(string userId)
+        public IActionResult EditUser(string Id)
         {
             try
             {
-                var user = _context.Users.Find(userId);
+                var user = _context.Users.Find(Id);
 
                 if (user == null)
                 {
@@ -180,8 +178,7 @@ namespace PetAdoptionWebsite.Controllers
             }
             catch (Exception ex)
             {
-                // Log the exception 
-                // Redirect to an error view 
+                
                 return RedirectToAction("Error");
             }
         }
@@ -208,8 +205,7 @@ namespace PetAdoptionWebsite.Controllers
             }
             catch (Exception ex)
             {
-                // Log the exception 
-                // Redirect to an error view 
+                
                 return RedirectToAction("Error");
             }
         }
