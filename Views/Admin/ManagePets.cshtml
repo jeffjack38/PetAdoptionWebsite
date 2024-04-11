@@ -24,12 +24,9 @@
                 <td>@pet.Age</td>
                 <td>@(pet.IsAdopted ? "Yes" : "No")</td>
                 <td>
-                    <a asp-action="EditPet" asp-route-petId="@pet.Id">Edit</a> |
-                    <a asp-action="DeletePet" asp-route-petId="@pet.Id">Delete</a> |
-                    @if (!pet.IsAdopted)
-                    {
-                        <a asp-action="MarkAsAdopted" asp-route-petId="@pet.Id">Mark as Adopted</a>
-                    }
+                    <a asp-action="EditPet" asp-route-Id="@pet.Id">Edit</a> |
+                    <a asp-action="DeletePet" asp-route-Id="@pet.Id">Delete</a> 
+                    
                 </td>
             </tr>
         }

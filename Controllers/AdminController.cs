@@ -22,7 +22,7 @@ namespace PetAdoptionWebsite.Controllers
         }
 
         // ManagePet Action
-        public IActionResult ManagePet()
+        public IActionResult ManagePets()
         {
             try
             {
@@ -31,8 +31,7 @@ namespace PetAdoptionWebsite.Controllers
             }
             catch (Exception ex)
             {
-                // Log the exception
-                // Redirect to an error view
+                
                 return RedirectToAction("Error");
             }
         }
@@ -105,11 +104,11 @@ namespace PetAdoptionWebsite.Controllers
 
 
         // DeletePet Action
-        public IActionResult DeletePet(int petId)
+        public IActionResult DeletePet(int Id)
         {
             try
             {
-                var pet = _context.Pets.Find(petId);
+                var pet = _context.Pets.Find(Id);
 
                 if (pet != null)
                 {
@@ -117,38 +116,15 @@ namespace PetAdoptionWebsite.Controllers
                     _context.SaveChanges();
                 }
 
-                return RedirectToAction("ManagePet");
+                return RedirectToAction("ManagePets");
             }
             catch (Exception ex)
             {
-                // Log the exception
-                // Redirect to an error view
+                
                 return RedirectToAction("Error");
             }
         }
 
-        // MarkAsAdopted Action
-        public IActionResult MarkAsAdopted(int petId)
-        {
-            try
-            {
-                var pet = _context.Pets.Find(petId);
-
-                if (pet != null)
-                {
-                    pet.IsAdopted = true;
-                    _context.SaveChanges();
-                }
-
-                return RedirectToAction("ManagePet");
-            }
-            catch (Exception ex)
-            {
-                // Log the exception 
-                // Redirect to an error view 
-                return RedirectToAction("Error");
-            }
-        }
 
         // ManageUsers Action
         public IActionResult ManageUsers()
