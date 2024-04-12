@@ -25,6 +25,55 @@ namespace PetAdoptionWebsite.Controllers
             return View();
         }
 
+        // add pet
+        [HttpGet]
+        public IActionResult AddPet()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddPet(AddPetViewModel model)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    var newPet = new Pet
+                    {
+                        Name = model.Name,
+                        Species = model.Species,
+                        Age = model.Age,
+                        BondedBuddyStatus = model.BondedBuddyStatus,
+                        Description = model.Description,
+                        SpecialCareInstructions = model.SpecialCareInstructions
+                    };
+
+                    _context.Pets.Add(newPet);
+                    await _context.SaveChangesAsync();
+
+                    return RedirectToAction("ManagePets");
+                }
+                if (!ModelState.IsValid)
+                {
+                    var errors = ModelState.Values.SelectMany(v => v.Errors);
+                    foreach (var error in errors)
+                    {
+                        _logger.LogError($"Validation error: {error.ErrorMessage}");
+                    }
+
+                }
+                    // If model state is not valid, return the view with the current model to display validation errors
+                    return View(model);
+                
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "An error occurred while adding a new pet.");
+                return RedirectToAction("Error");
+            }
+        }
+
         // ManagePet Action
         public IActionResult ManagePets()
         {
@@ -241,8 +290,7 @@ namespace PetAdoptionWebsite.Controllers
             }
             catch (Exception ex)
             {
-                // Log the exception 
-                // Redirect to an error view 
+                
                 return RedirectToAction("Error");
             }
         }
@@ -251,8 +299,7 @@ namespace PetAdoptionWebsite.Controllers
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
-            // Log the error if neede
-            // Display a custom error view with the error details
+            
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
