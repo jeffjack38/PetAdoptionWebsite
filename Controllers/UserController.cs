@@ -171,57 +171,5 @@ namespace PetAdoptionWebsite.Controllers
 
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
-
-        [Fact]
-        public async Task Profile_ReturnsViewWithUser()
-        {
-            // Arrange
-            var context = new Mock<PetContext>();
-            var userManager = MockUserManager();
-            var controller = new UserController(context.Object, userManager.Object);
-            controller.ControllerContext = new ControllerContext
-            {
-                HttpContext = new DefaultHttpContext
-                {
-                    User = new ClaimsPrincipal(new ClaimsIdentity(new Claim[]
-                    {
-                        new Claim(ClaimTypes.Name, "TestUser"),
-                        new Claim(ClaimTypes.NameIdentifier, "TestId"),
-                    }, "mock"))
-                }
-            };
-
-            userManager.Setup(u => u.GetUserAsync(It.IsAny<ClaimsPrincipal>())).ReturnsAsync(new User { Id = "TestId", UserName = "TestUser" });
-
-            
-        }
-
-        [Fact]
-        public async Task Profile_WithNullUser_RedirectsToLogin()
-        {
-            // Arrange
-            var context = new Mock<PetContext>();
-            var userManager = MockUserManager();
-            var controller = new UserController(context.Object, userManager.Object);
-            controller.ControllerContext = new ControllerContext
-            {
-                HttpContext = new DefaultHttpContext
-                {
-                    User = new ClaimsPrincipal(new ClaimsIdentity())
-                }
-            };
-
-            userManager.Setup(u => u.GetUserAsync(It.IsAny<ClaimsPrincipal>())).ReturnsAsync((User)null);
-
-
-        }
-
-        // Helper method to mock UserManager
-        private static Mock<UserManager<User>> MockUserManager()
-        {
-            var store = new Mock<IUserStore<User>>();
-            return new Mock<UserManager<User>>(store.Object, null, null, null, null, null, null, null, null);
-        }
-
     }
 }
