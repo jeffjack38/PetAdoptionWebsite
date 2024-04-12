@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using PetAdoptionWebsite.Models;
 using System.Diagnostics;
+using Microsoft.Extensions.Logging;
+
 
 namespace PetAdoptionWebsite.Controllers
 {
@@ -9,11 +11,13 @@ namespace PetAdoptionWebsite.Controllers
     {
         private readonly PetContext _context;
         private readonly UserManager<User> _userManager;
+        private readonly ILogger<AccountController> _logger;
 
-        public AdminController(PetContext context, UserManager<User> userManager)
+        public AdminController(PetContext context, UserManager<User> userManager, ILogger<AccountController> logger)
         {
             _context = context;
             _userManager = userManager;
+            _logger = logger;
         }
 
         public IActionResult Index()
@@ -198,17 +202,27 @@ namespace PetAdoptionWebsite.Controllers
                 if (userProfile != null)
                 {
                     userProfile.UserName = updatedUser.UserName;
+                    userProfile.FirstName = updatedUser.FirstName;
+                    userProfile.LastName = updatedUser.LastName;
                     _context.SaveChanges();
+                   
+                    return RedirectToAction("ManageUsers", new { userId = updatedUser.Id });
                 }
-
-                return RedirectToAction("ManageUsers", new { userId = updatedUser.Id });
+                else
+                {
+                    ModelState.AddModelError("", "User not found.");
+                    return View(updatedUser);
+                }
             }
             catch (Exception ex)
             {
-                
+                _logger.LogError(ex, "An error occurred while editing the user.");
+                TempData["error"] = "An error occurred while processing your request. Please try again.";
+
                 return RedirectToAction("Error");
             }
         }
+
 
         // DeleteUser Action
         public IActionResult DeleteUser(string Id)
