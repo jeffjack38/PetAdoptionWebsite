@@ -4,15 +4,28 @@
 <div class="login-container">
     <h2>Login</h2>
 
+    <!-- Display model-wide errors -->
+    @if (!ViewData.ModelState.IsValid)
+    {
+        <div class="alert alert-danger">
+            @foreach (var error in ViewData.ModelState.Values.SelectMany(modelState => modelState.Errors))
+            {
+                <p>@error.ErrorMessage</p>
+            }
+        </div>
+    }
+
     <form method="post" asp-action="Login" asp-controller="Account">
         <div>
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required />
+            <span asp-validation-for="Username" class="text-danger"></span>
         </div>
 
         <div>
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required />
+            <span asp-validation-for="Password" class="text-danger"></span>
         </div>
 
         <div>

@@ -10,11 +10,13 @@ namespace PetAdoptionWebsite.Controllers
     {
         private readonly UserManager<User> userManager;
         private readonly SignInManager<User> signInManager;
+        private readonly ILogger<AccountController> _logger;
 
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager)
+        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, ILogger<AccountController> logger)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
+            _logger = logger;
         }
 
         [HttpGet]
@@ -56,7 +58,7 @@ namespace PetAdoptionWebsite.Controllers
             }
             catch (Exception ex)
             {
-                // Log the exception 
+                _logger.LogError(ex, "An error occurred on user registration/login");
                 TempData["error"] = "An error occurred during registration.";
                 return RedirectToAction("Index"); // Redirect to home page
             }
@@ -65,6 +67,7 @@ namespace PetAdoptionWebsite.Controllers
         [HttpGet]
         public IActionResult Login(string returnURL = "")
         {
+            ModelState.Remove("returnURL"); // Explicitly clear ModelState for returnURL
             var model = new LoginViewModel { ReturnURL = returnURL };
             return View(model);
         }
@@ -97,7 +100,7 @@ namespace PetAdoptionWebsite.Controllers
             }
             catch (Exception ex)
             {
-                // Log the exception (customize based on your logging strategy)
+                
                 TempData["error"] = "An error occurred during login.";
                 return RedirectToAction("Index"); // Redirect to the appropriate action
             }

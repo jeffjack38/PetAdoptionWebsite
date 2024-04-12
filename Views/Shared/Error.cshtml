@@ -2,6 +2,11 @@
 
 <h1 class="text-danger">An error occurred while processing your request.</h1>
 
+@if (!string.IsNullOrEmpty(Model.ErrorMessage))
+{
+    <p>@Model.ErrorMessage</p>
+}
+
 @if (Model.ShowRequestId)
 {
     <p>
