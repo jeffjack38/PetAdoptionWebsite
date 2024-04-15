@@ -5,8 +5,6 @@ VisualStudioVersion = 17.7.34024.191
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PetAdoptionWebsite", "PetAdoptionWebsite.csproj", "{77B5C4DE-3BFF-450B-820E-AB8C72797057}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PetAdoptionWebsite.Test", "PetAdoptionWebsite.Test\PetAdoptionWebsite.Test.csproj", "{1281C4EC-F94A-481D-AB4D-0ECC429612E0}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{77B5C4DE-3BFF-450B-820E-AB8C72797057}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{77B5C4DE-3BFF-450B-820E-AB8C72797057}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{77B5C4DE-3BFF-450B-820E-AB8C72797057}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1281C4EC-F94A-481D-AB4D-0ECC429612E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1281C4EC-F94A-481D-AB4D-0ECC429612E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1281C4EC-F94A-481D-AB4D-0ECC429612E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1281C4EC-F94A-481D-AB4D-0ECC429612E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
